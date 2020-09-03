@@ -1,0 +1,10 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: cmcode-config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://C:/Dev_Setup/git_repository/cm-code-config-repo

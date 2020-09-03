@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: application-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: cmcode-search-service
+        uri: lb://cmcode-search-service
+        predicates:
+        - Path=/cmcode/**
