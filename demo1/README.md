@@ -1,2 +1,2 @@
 # spring-ms-demo/Demo1
-This is microservice demo with spring cloud suite.
+Make below changes in cmcode-config-service/application.properties to point your valid git repository Copy and commit service config files from cm-code-config-git-repo to your git repository All othere configuration are in place, now you can startup all services and demostrate spring cloud microservice demo
