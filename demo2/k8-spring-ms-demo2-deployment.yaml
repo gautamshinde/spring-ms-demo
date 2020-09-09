@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  labels:
+    app: k8s-spring-ms-demo2
+  name: k8s-spring-ms-demo2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-spring-ms-demo2
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: k8s-spring-ms-demo2
+    spec:
+      containers:
+      - image: spring-ms-docker-demo2
+        name: k8s-spring-ms-demo2
+        resources: {}
+status: {}
