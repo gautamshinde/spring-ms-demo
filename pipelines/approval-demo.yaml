@@ -22,7 +22,7 @@ stages:
       - stage: Test 
         displayName: Testing variables
         variables:
-          - template: 'variables/env/${{ environmentAlias }}/variables.yaml'        
+          - template: 'variables/env/${{ variables.environmentAlias }}/variables.yaml'        
         jobs:
           - job: Approval_Job_1
             displayName: ${{ parameters.environment }} Deployment Approval
