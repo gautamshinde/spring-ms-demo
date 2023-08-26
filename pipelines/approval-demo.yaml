@@ -5,9 +5,7 @@ parameters:
     default: Stage
     values:
       - Stage
-      - Prod
-  - name: imageTag
-    type: string
+      - Prod   
 pool:
   vmImage: ubuntu-latest
 trigger: none
@@ -24,17 +22,7 @@ stages:
         variables:
           - template: 'variables/env/${{ variables.environmentAlias }}/variables.yaml'        
         jobs:
-          - job: Approval_Job_1
+          - job: Execute Script
             displayName: ${{ parameters.environment }} Deployment Approval
             steps:
-              - script: echo "Hello, world!"
-          - job: Approval_Job_2
-            displayName: ${{ parameters.environment }} Deployment Approval
-            pool: server
-            steps:
-              - task: ManualIntervention@8
-                displayName: 'Manual Intervention'
-                inputs:
-                  instructions: 'Please approve test deployment validation.'
-                  emailRecipients: 'gk.shinde@gmail.com'
-                  onTimeout: 'reject'                    
+              - script: echo "Hello, world!"          
