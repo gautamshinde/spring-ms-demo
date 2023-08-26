@@ -1,1 +1,2 @@
-
+variables:
+  version: 1.0
