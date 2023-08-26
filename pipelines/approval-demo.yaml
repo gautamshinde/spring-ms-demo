@@ -1,7 +1,4 @@
 parameters:
-- task: ManualIntervention@8
-  inputs:
-    emailRecipients: 'abc@gmail.com, def@gmail.com'
   - name: environment
     displayName: The Environment to deploy the image
     type: string
