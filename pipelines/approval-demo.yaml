@@ -35,7 +35,7 @@ stages:
               - task: ManualIntervention@8
                 displayName: 'Manual Intervention'
                 inputs:
-                  instructions: 'Please approve ${{ parameters.environment }} deployment validation.'
+                  instructions: 'Please approve test deployment validation.'
                   emailRecipients: 'gk.shinde@gmail.com'
                   onTimeout: 'reject'  
                 env:
