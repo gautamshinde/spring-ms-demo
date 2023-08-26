@@ -28,4 +28,16 @@ stages:
             displayName: ${{ parameters.environment }} Deployment Approval
             steps:
               - script: echo "Hello, world!"
-             
+          - job: Approval_Job_1
+            displayName: ${{ parameters.environment }} Deployment Approval
+            steps:
+              - task: ManualIntervention@1
+                displayName: 'Manual Intervention'
+                inputs:
+                  instructions: 'Please approve ${{ parameters.environment }} deployment validation.'
+                  notifyUsers: |
+                    gk.shinde@gmail.com
+                  onTimeout: 'reject'  
+                env:
+                  minimumApprovals: 2
+                timeoutInMinutes: 1440      
