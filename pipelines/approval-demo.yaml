@@ -1,0 +1,31 @@
+parameters:
+  - name: environment
+    displayName: The Environment to deploy the image
+    type: string
+    default: Stage
+    values:
+      - Stage
+      - Prod
+  - name: imageTag
+    type: string
+pool:
+  vmImage: ubuntu-latest
+trigger: none
+name: '$(Date:yyyy).$(Date:MMdd)$(rev:.r)'
+variables:  
+  - name: environmentAlias
+    ${{ if eq( parameters['environment'], 'Stage') }}:
+      value: "test"
+    ${{ if eq( parameters['environment'], 'Prod' ) }}:
+      value: "prod"
+stages:
+      - stage: Test 
+        displayName: Testing variables
+        variables:
+          - template: 'variables/env/$(environmentAlias)/variables.yaml'        
+        jobs:
+          - job: Approval_Job_1
+            displayName: ${{ parameters.environment }} Deployment Approval
+            steps:
+              - script: echo "Hello, world!"
+             
