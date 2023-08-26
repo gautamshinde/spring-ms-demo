@@ -37,7 +37,4 @@ stages:
                 inputs:
                   instructions: 'Please approve test deployment validation.'
                   emailRecipients: 'gk.shinde@gmail.com'
-                  onTimeout: 'reject'  
-                env:
-                  minimumApprovals: 1
-                timeoutInMinutes: 1440      
+                  onTimeout: 'reject'                    
