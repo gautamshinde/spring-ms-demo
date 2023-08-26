@@ -30,6 +30,7 @@ stages:
               - script: echo "Hello, world!"
           - job: Approval_Job_2
             displayName: ${{ parameters.environment }} Deployment Approval
+            pool: server
             steps:
               - task: ManualIntervention@8
                 displayName: 'Manual Intervention'
