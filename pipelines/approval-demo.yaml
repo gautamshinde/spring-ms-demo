@@ -1,4 +1,7 @@
 parameters:
+- task: ManualIntervention@8
+  inputs:
+    emailRecipients: 'abc@gmail.com, def@gmail.com'
   - name: environment
     displayName: The Environment to deploy the image
     type: string
@@ -36,8 +39,7 @@ stages:
                 displayName: 'Manual Intervention'
                 inputs:
                   instructions: 'Please approve ${{ parameters.environment }} deployment validation.'
-                  emailRecipients: |
-                    gk.shinde@gmail.com
+                  emailRecipients: 'gk.shinde@gmail.com'
                   onTimeout: 'reject'  
                 env:
                   minimumApprovals: 1
